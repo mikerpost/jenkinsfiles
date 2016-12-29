@@ -23,6 +23,7 @@ def launchTests() {
 def runTests(browser) { 
 	node {
 		sh "echo running in ${browser}"
+		sh 'pwd'
 		sh 'ls -ltrh '
 	}
 }
