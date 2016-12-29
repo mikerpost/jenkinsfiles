@@ -1,5 +1,25 @@
 node {
-	stage('checkout') { sh 'echo "temp action"' }
-	stage('compiling, testing, packaging') { sh 'echo "temp action"' }
-	stage('archive') { sh 'echo "temp action"' }
+	stage('checkout') { 
+		sh 'echo "temp action"' 
+	}
+	stage('compiling, testing, packaging') { 
+
+	}
+	stage('archive') { 
+		sh 'echo "temp action"' 
+	}
+}
+
+parallel chrome: {
+	runTests("Chrome")
+}, firefox: {
+	runTests("Firefox")
+}, safari: {
+	runTests("Safari")
+}
+
+def runTests(browser) { 
+	node {
+		sh "echo running in ${browser}"
+	}
 }
