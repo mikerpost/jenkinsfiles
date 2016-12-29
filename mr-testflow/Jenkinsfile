@@ -23,5 +23,6 @@ def launchTests() {
 def runTests(browser) { 
 	node {
 		sh "echo running in ${browser}"
+		sh 'ls -ltrh '
 	}
 }
