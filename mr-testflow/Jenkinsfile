@@ -1,5 +1,5 @@
 node {
 	stage('checkout') { sh 'echo "temp action"' }
 	stage('compiling, testing, packaging') { sh 'echo "temp action"' }
-	stage('checkout') { sh 'echo "temp action"' }
+	stage('archive') { sh 'echo "temp action"' }
 }
