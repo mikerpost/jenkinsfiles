@@ -2,20 +2,20 @@ node {
 	stage('checkout') { 
 		sh 'echo "temp action"' 
 	}
-	stage('compiling, testing, packaging') { 
+}
 
-	}
-	stage('archive') { 
-		sh 'echo "temp action"' 
+stage('compiling, testing, packaging') { 
+	parallel chrome: {
+		runTests("Chrome")
+	}, firefox: {
+		runTests("Firefox")
+	}, safari: {
+		runTests("Safari")
 	}
 }
 
-parallel chrome: {
-	runTests("Chrome")
-}, firefox: {
-	runTests("Firefox")
-}, safari: {
-	runTests("Safari")
+stage('archive') { 
+	sh 'echo "temp action"' 
 }
 
 def runTests(browser) { 
