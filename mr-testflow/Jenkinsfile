@@ -1,6 +1,6 @@
 node {
 	stage('checkout') { 
-		sh 'echo "temp action"' 
+		getRepo() 
 	}
 	stage('compiling, testing, packaging') { 
 		launchTests() 
@@ -8,6 +8,10 @@ node {
 	stage('archive') { 
 		sh 'echo "temp action"' 
 	}
+}
+
+def getRepo() {
+	git 'https://github.com/mikerpost/mrflow.git'
 }
 
 def launchTests() { 
